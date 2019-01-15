@@ -27,7 +27,7 @@
 
 <body>
 
-<form action="" method="post">
+<form action="" method="post" id="loginform">
 
 	<div>Username:</div>
 	<input type="text" id="username">

@@ -39,31 +39,32 @@ $(document).ready(function() {
 var Module = (function() {
 
 	var //selectors
-		$username = $('#username'),
-		$password = $('#password'),
-		$submit   = $('#submit'),
-		$content  = $('#content');
+		$submit    = $('#submit'),
+		$content   = $('#content'),
+		$loginform = $('#loginform');
 
 	var startRequest = function() {
 		$submit.click(function(e) {
 			e.preventDefault();
-			$.ajax({
-				url: './checkinfo.php',
-				method: 'post',
-				dataType: 'JSON',
-				data: {
-					username: $username.val(),
-					password: $password.val()
-				},
-				success: function(result) {
-					$content.html(result);
-					console.log('ramura de succes');
-
-				}
-			})
-			.done(function(data) {
-				$content.html(data);
-			})
+			var $username = $('#username').val();
+			var	$password = $('#password').val();
+			if ($username != "admin" || $password != "admin")
+				alert("not admin");
+			else
+				$loginform.style.display = 'none';
+				$.ajax({
+					url: './checkinfo.php',
+					method: 'post',
+					dataType: 'JSON',
+					data: {
+						username: $username,
+						password: $password
+					},
+					success: function(result) {
+						$content.html(result);
+						console.log('ramura de succes');
+					}
+				})
 		})
 	}
 
