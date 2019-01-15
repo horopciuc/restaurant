@@ -6,6 +6,12 @@
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
+	$object = array(
+		'Uname' => $username,
+		'Pword' => $password
+	);
+
+	echo json_encode($object);
 
 	// $returnData = new stdClass();
 	// $returnData->username = '';
@@ -26,7 +32,6 @@
 	// 	$returnData->password = $password;
 	// }
 
-	echo json_encode($username.$password);
 
 ?>
 

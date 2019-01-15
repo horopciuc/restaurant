@@ -27,7 +27,7 @@
 
 <body>
 
-<form action="" method="post" id="loginform">
+<form action="checkinfo.php" method="post" id="loginform">
 
 	<div>Username:</div>
 	<input type="text" id="username">
@@ -39,6 +39,9 @@
 </form>
 
 <div id="content">
+
+</div>
+<div id="content2">
 
 </div>
 

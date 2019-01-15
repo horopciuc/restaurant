@@ -41,30 +41,34 @@ var Module = (function() {
 	var //selectors
 		$submit    = $('#submit'),
 		$content   = $('#content'),
+		$content2   = $('#content2'),
 		$loginform = $('#loginform');
 
 	var startRequest = function() {
 		$submit.click(function(e) {
-			e.preventDefault();
+			e.preventDefault(); //to prevent the page to reload
 			var $username = $('#username').val();
 			var	$password = $('#password').val();
-			if ($username != "admin" || $password != "admin")
+			if ($username != "admin" || $password != "admin"){
 				alert("not admin");
-			else
-				$loginform.style.display = 'none';
+			}
+			else {
 				$.ajax({
 					url: './checkinfo.php',
-					method: 'post',
+					type: 'post',
 					dataType: 'JSON',
 					data: {
 						username: $username,
 						password: $password
 					},
 					success: function(result) {
-						$content.html(result);
+						// $loginform.hide();
+						$content.html(result.Uname);
+						$content2.html(result.Pword);
 						console.log('ramura de succes');
 					}
 				})
+			}
 		})
 	}
 
