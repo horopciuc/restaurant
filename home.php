@@ -1,22 +1,24 @@
-<?php   session_start();  ?>
+<?php
+	session_start();
+
+	// if(!isset($_SESSION['use'])) {
+	// 	header("Location:login.php");
+	// }
+	// echo $_SESSION['use'];
+	// echo "Login Success";
+	echo "<a href='logout.php'> Logout</a> ";
+	session_unset();
+?>
 
 <html>
-  <head>
-       <title> Home </title>
-  </head>
-  <body>
-<?php
-      if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
-       {
-           header("Location:Login.php");  
-       }
 
-          echo $_SESSION['use'];
+<head>
+	<title>Home</title>
+</head>
 
-          echo "Login Success";
+<body>
 
-          echo "<a href='logout.php'> Logout</a> "; 
-          session_unset();
-?>
 </body>
+
+
 </html>
